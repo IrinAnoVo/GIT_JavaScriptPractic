@@ -12,6 +12,9 @@
 // let age = 30;
 // console.log(age); //30
 
+console.log("Hello wrold !!!");
+
+
 // let age;
 // let user1;
 // let $color;
