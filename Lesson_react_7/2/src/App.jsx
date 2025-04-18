@@ -17,7 +17,10 @@ const App = () => {
         increment={handleIncrement} 
         decrement={handleDecrement}
       />
-      <Child count={count}/>
+
+      <ContextValue.Provider value={{count, handleIncrement}}>
+          <Child/>
+      </ContextValue.Provider>
     </>
   )
 }
