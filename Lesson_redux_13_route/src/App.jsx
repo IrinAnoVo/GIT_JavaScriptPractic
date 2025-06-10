@@ -4,7 +4,7 @@ import About from "./pages/About/about";
 import Posts from "./pages/Post/post";
 import Post from "./pages/Post/post";
 
-const setActiLink = ({ isActive }) => {
+const setActiveLink = ({ isActive }) => {
   return isActive ? "navbar__item navbar__item-active" : "navbar__item";
 }
 
@@ -14,9 +14,9 @@ const App = () => {
       <header>
         <nav className="navbar">
           <ul className="navbar-list">
-            <li><NavLink to="/" className={setActiLink}>Home</NavLink></li>
-            <li><NavLink to="/about" className={setActiLink}>About</NavLink></li>
-            <li><NavLink to="/posts" className={setActiLink}>Posts</NavLink></li>
+            <li><NavLink to="/" className={setActiveLink}>Home</NavLink></li>
+            <li><NavLink to="/about" className={setActiveLink}>About</NavLink></li>
+            <li><NavLink to="/posts" className={setActiveLink}>Posts</NavLink></li>
           </ul>
         </nav>
       </header>
