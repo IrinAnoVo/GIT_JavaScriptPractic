@@ -2,42 +2,22 @@ import { useState } from "react"
 import TodoList from "./components/TodoList/todoList";
 import Footer from "./components/Footer/footer";
 import Actions from "./components/Actions/actions";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const [inputValue, setInputValue] = useState("");
+  const {todos} = useSelector((state) => state.todos);
+
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all"); // active
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  }
-
-  const handleAddTask = () => {
-    const newTask = {
-      id: Date.now(),
-      label: inputValue,
-      completed: false,
-    };
-
-    setTasks([...tasks, newTask]);
-
-    setInputValue("");
-  }
-
-  const handleEnterTask = (event) => {
-    if (event.key === "Enter" && inputValue.trim() !== "") {
-      handleAddTask();
-    }
-  }
-
   const handleDeleteTask = (taskId) => {
-    const updatedTasks = tasks.filter(task => task.id !== taskId);
+    const updatedTasks = todos.filter(task => task.id !== taskId);
 
     setTasks(updatedTasks);
   }
 
   const handleToggleTask = (taskId) => {
-    const updatedTasks = tasks.map(task => {
+    const updatedTasks = todos.map(task => {
       if (task.id === taskId) {
         return { ...task, completed: !task.completed };
       }
@@ -51,7 +31,7 @@ const App = () => {
     setFilter(newFilter);
   }
 
-  const filteredTasks = tasks.filter(task => {
+  const filteredTasks = todos.filter(task => {
     if (filter === "active") {
       return !task.completed;
     } else if (filter === "completed") {
@@ -61,7 +41,7 @@ const App = () => {
   });
 
   const handleClearCompleted = () => {
-    const updatedTasks = tasks.filter(task => !task.completed);
+    const updatedTasks = todos.filter(task => !task.completed);
 
     setTasks(updatedTasks);
   }
@@ -71,12 +51,8 @@ const App = () => {
       <h1 className="todo-app__title">Todo App</h1>
 
       <div className="todo-app__content">
-        <Actions
-          inputValue={inputValue}
-          inputChange={handleInputChange}
-          addTask={handleAddTask}
-          enterTask={handleEnterTask}
-        />
+        
+        <Actions/>
 
         <TodoList data={filteredTasks}
           toggleTask={handleToggleTask}
