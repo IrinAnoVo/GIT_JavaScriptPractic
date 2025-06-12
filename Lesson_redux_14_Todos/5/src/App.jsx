@@ -27,6 +27,12 @@ const App = () => {
     setInputValue("");
   }
 
+  const handleEnterTask = (event) => {
+    if (event.key === "Enter" && inputValue.trim() !== "") {
+      handleAddTask();
+    }
+  }
+
   const handleDeleteTask = (taskId) => {
     const updatedTasks = tasks.filter(task => task.id !== taskId);
 
@@ -38,7 +44,7 @@ const App = () => {
       if (task.id === taskId) {
         return { ...task, completed: !task.completed };
       }
-      return task;
+      return task; 
     });
 
     setTasks(updatedTasks);
@@ -72,7 +78,10 @@ const App = () => {
 
       <div className="todo-app__content">
         <div className="todo-app__input">
-          <input type="text" value={inputValue} placeholder="Add a new task..." onChange={handleInputChange} />
+          <input type="text" value={inputValue} 
+          placeholder="Add a new task..." 
+          onChange={handleInputChange} 
+          onKeyDown={handleEnterTask} />
           <button onClick={handleAddTask}>Add</button>
         </div>
 
