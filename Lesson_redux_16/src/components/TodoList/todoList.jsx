@@ -1,6 +1,6 @@
 import TodoItem from "./todoItem"
 
-const TodoList = ({data, toggleTask, deleteTask}) => {
+const TodoList = ({data}) => {
   return (
     <ul className="todo-app__list">
         {

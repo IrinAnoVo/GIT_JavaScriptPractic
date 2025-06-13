@@ -1,33 +1,19 @@
-import { useState } from "react"
 import TodoList from "./components/TodoList/todoList";
 import Footer from "./components/Footer/footer";
 import Actions from "./components/Actions/actions";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  const {todos} = useSelector((state) => state.todos);
-
-  const [tasks, setTasks] = useState([]);
-  const [filter, setFilter] = useState("all"); // active
-
-  const handleChangeFilter = (newFilter) => { // all
-    setFilter(newFilter);
-  }
+  const { todos, filter } = useSelector((state) => state.todos);
 
   const filteredTasks = todos.filter(task => {
     if (filter === "active") {
-      return !task.completed;
+      return !task.completed; 
     } else if (filter === "completed") {
       return task.completed;
     }
     return true;
   });
-
-  const handleClearCompleted = () => {
-    const updatedTasks = todos.filter(task => !task.completed);
-
-    setTasks(updatedTasks);
-  }
 
   return (
     <div className="todo-app">
@@ -45,8 +31,6 @@ const App = () => {
             <Footer
               tasks={todos}
               activeLabel={filter}
-              changeFilter={handleChangeFilter}
-              clearCompleted={handleClearCompleted}
             />
           )
         }   

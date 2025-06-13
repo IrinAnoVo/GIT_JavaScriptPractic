@@ -26,35 +26,21 @@ const todosSlice = createSlice({
             state.todos = state.todos.filter(todo => todo.id !== action.payload);
         },
         toggleTask: (state, action) => {
-            const todo = state.todos.find(todo => todo.id === action.payload);
-            if (todo) {
-                todo.completed = !todo.completed;
-            }
-        },
-
-    },
-});
-
-export default todosSlice.reducer;
-export const { addTodo, deleteTask, toggleTask } = todosSlice.actions;
-
-        /*
-        addTodo: (state, action) => {
-            state.todos.push(action.payload);
-        },
-        deleteTodo: (state, action) => {
-            state.todos = state.todos.filter(todo => todo.id !== action.payload);
-        },
-        toggleTodo: (state, action) => {
-            const todo = state.todos.find(todo => todo.id === action.payload);
-            if (todo) {
-                todo.completed = !todo.completed;
-            }
-        },
-        changeFilter: (state, action) => {
-            state.filter = action.payload;
+            state.todos = state.todos.map(todo => {
+                if (todo.id === action.payload) {
+                    return { ...todo, completed: !todo.completed };
+                }
+                return todo;
+            })
         },
         clearCompleted: (state) => {
             state.todos = state.todos.filter(todo => !todo.completed);
         },
-        */
+        changeFilter: (state, action) => {
+            state.filter = action.payload;  // 'all', 'completed', 'active'
+        },
+    }
+});
+
+export const { addTodo, deleteTask, toggleTask, clearCompleted, changeFilter } = todosSlice.actions;
+export default todosSlice.reducer;

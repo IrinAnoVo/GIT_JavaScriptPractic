@@ -1,6 +1,14 @@
-import Filters from "../Filters/filters"
+import { useDispatch } from "react-redux";
+import Filters from "./components/Filters/filters"
+import { clearCompleted } from "../../store/features/todos/todosSlice";
 
-const Footer = ({tasks, activeLabel, changeFilter, clearCompleted}) => {
+const Footer = ({tasks, activeLabel}) => {
+    const dispatch = useDispatch();
+
+    const handleClearCompleted = () => {
+        dispatch(clearCompleted());
+    }
+
     const taskLeft = tasks.filter(task => !task.completed).length;
 
   return (
@@ -10,12 +18,11 @@ const Footer = ({tasks, activeLabel, changeFilter, clearCompleted}) => {
               </div>
 
               <Filters 
-              activeLabel={activeLabel} 
-              changeFilter={changeFilter} 
+              activeLabel={activeLabel}  
               />
               
               <div className="todo-app__footer-actions">
-                <button className="todo-app__clear-completed" onClick={clearCompleted}>Clear completed</button>
+                <button className="todo-app__clear-completed" onClick={handleClearCompleted}>Clear completed</button>
               </div>
             </div>
   )

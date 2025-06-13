@@ -6,7 +6,7 @@ const filterOptions = [
   { label: "Completed", value: "completed" },
 ];
 
-const Filters = ({activeLabel, changeFilter}) => {
+const Filters = ({activeLabel}) => {
     
 
   return (
@@ -16,8 +16,7 @@ const Filters = ({activeLabel, changeFilter}) => {
           <FilterItem
             activeLabel={activeLabel}
             key={option.value}
-            option={option}
-            changeFilter={changeFilter}
+            option={option}            
           />
         ))}
       </ul>

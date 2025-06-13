@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { deleteTask, toggleTask } from "../../store/features/todos/todosSlice";
 
 const TodoItem = ({todo}) => {
 
