@@ -10,23 +10,6 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all"); // active
 
-  const handleDeleteTask = (taskId) => {
-    const updatedTasks = todos.filter(task => task.id !== taskId);
-
-    setTasks(updatedTasks);
-  }
-
-  const handleToggleTask = (taskId) => {
-    const updatedTasks = todos.map(task => {
-      if (task.id === taskId) {
-        return { ...task, completed: !task.completed };
-      }
-      return task; 
-    });
-
-    setTasks(updatedTasks);
-  }
-
   const handleChangeFilter = (newFilter) => { // all
     setFilter(newFilter);
   }
@@ -54,15 +37,13 @@ const App = () => {
         
         <Actions/>
 
-        <TodoList data={filteredTasks}
-          toggleTask={handleToggleTask}
-          deleteTask={handleDeleteTask} 
+        <TodoList data={filteredTasks}          
           /> 
 
         {
-          tasks.length > 0 && (
+          todos.length > 0 && (
             <Footer
-              tasks={tasks}
+              tasks={todos}
               activeLabel={filter}
               changeFilter={handleChangeFilter}
               clearCompleted={handleClearCompleted}

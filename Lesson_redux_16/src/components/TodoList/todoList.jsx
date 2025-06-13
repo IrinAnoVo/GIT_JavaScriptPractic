@@ -8,8 +8,6 @@ const TodoList = ({data, toggleTask, deleteTask}) => {
                 <TodoItem 
                     key={todo.id}
                     todo={todo}
-                    toggleTask={toggleTask}
-                    deleteTask={deleteTask}
                 />
             ))
         }
