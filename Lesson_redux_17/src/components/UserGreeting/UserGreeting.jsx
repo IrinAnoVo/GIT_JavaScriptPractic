@@ -10,22 +10,20 @@ user — объект с полями name и age.
 2. Дочерний компонент UserGreeting.jsx
 */
 
-import React from 'react';
+import React from 'react'
 
-const UserGreeting = ({ isLoggedIn, user }) => {
+const UserGreeting = ({isLoggedIn, user}) => {
   return (
-    <>
-      <div>
-        {isLoggedIn ? (
-          <h2>
-            🔹Привет, {user.name}! Твой возраст: {user.age} лет.
-          </h2>
-        ) : (
-          <h2>🔹Авторизируйтесь!!!</h2>
-        )}
-      </div>
-    </>
-  );
-};
- 
-export default UserGreeting;
+    <div>
+        {
+            isLoggedIn ? (
+                <h2>Добро пожаловать, {user.name}!</h2>
+            ) : (
+                <h2>Пожалуйста, войдите в систему.</h2>
+            )
+        }
+    </div>
+  )
+}
+
+export default UserGreeting

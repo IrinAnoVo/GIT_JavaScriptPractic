@@ -16,23 +16,21 @@ MacBook — $1500 🟠 Дорогой товар
 iPhone — $1200 🟠 Дорогой товар
 */
 
-import React from 'react';
+import React from 'react'
 
-const ProductList = ({ products }) => {
+const ProductList = ({products}) => {
   return (
-    <>
-      <h3>Список товаров:</h3>
-      <ul>
-        {products && products.map((product, index) => (
-          <li key={index}>
-            {product.name} — ${product.price}{' '}
-            {product.price > 1000 ? " - 🟠 Дорогой товар" : " "}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-};
+    <ul>
+        {
+            products && products.map((product, index) => (
+                <li key={index}>
+                    <h3>{product.name}</h3>
+                    <p>Цена: ${product.price} {product.price > 1000 && <span>- 🟠 Дорогой товар.</span>}</p>
+                </li>
+            ))
+        }
+    </ul>
+  )
+}
 
-export default ProductList;
-
+export default ProductList

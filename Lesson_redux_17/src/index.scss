@@ -1,17 +1,72 @@
 *{
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-.post {
-  max-width: 768px;
-  margin: 24px auto;
-  padding: 24px 12px;
-  background-color: #f2f2f2;
+body {
+  background-color: #f0f0f0;
+}
 
-  &-title {
-    font-family: sans-serif;
-    margin-bottom: 16px;
-  }
+.products {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.products h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-item {
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.product-item img {
+  width: 100%;
+  border-radius: 8px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.product-item h2 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.product-item p {
+  font-size: 18px;
+  color: #555;
+}
+
+.weather-list {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weather-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
