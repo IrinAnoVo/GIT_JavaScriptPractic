@@ -70,3 +70,24 @@ body {
   flex-direction: column;
   gap: 10px;
 }
+
+.product-list {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

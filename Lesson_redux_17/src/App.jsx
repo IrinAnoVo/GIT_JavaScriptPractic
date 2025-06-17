@@ -4,6 +4,7 @@ import TodoList from './components/TodoList/TodoList';
 import UserGreeting from './components/UserGreeting/UserGreeting';
 import ProductList from './components/ProductList/ProductList';
 import WeatherList from './components/WeatherList/WeatherList';
+import PostList from './components/PostList/PostList';
 
 //const tasks = ["Купить хлеб", "Выучить React", "Сделать зарядку"];
 
@@ -15,6 +16,7 @@ const productsItems = [
 ];
 */
 
+/*
 const weatherData = [
   { city: "Ереван", temperature: 35 },
   { city: "Берлин", temperature: 20 },
@@ -23,7 +25,7 @@ const weatherData = [
   { city: "Нью-Йорк", temperature: 12 },
   { city: "Рейкьявик", temperature: -10 },
 ];
-
+*/
 
 const App = () => {
   /*
@@ -51,8 +53,12 @@ const App = () => {
 
       {/* <ProductList products={products} /> */}
 
-      <WeatherList weatherData={weatherData} />
+      {/*<WeatherList weatherData={weatherData} />
+      */}
+
+      <PostList />
     </div>
+
   )
 }
 
