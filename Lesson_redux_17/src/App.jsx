@@ -1,43 +1,48 @@
-import TodoList from "./components/TodoList/todoList";
-import Footer from "./components/Footer/footer";
-import Actions from "./components/Actions/actions";
-import { useSelector } from "react-redux";
-
+import React from 'react'
+import UserGreeting from './components/UserGreeting/user'
+import ProductList from './components/ProductList/productList'
+import WeatherCard from './components/WeatherCard/weatherCard'
+  
 const App = () => {
-  const { todos, filter } = useSelector((state) => state.todos);
+  const isLoggedIn = true;
+  const user = {
+    name: 'Мирон',
+    age: 24
+  };
 
-  const filteredTasks = todos.filter(task => {
-    if (filter === "active") {
-      return !task.completed; 
-    } else if (filter === "completed") {
-      return task.completed;
-    }
-    return true;
-  });
+  const products = [
+    { name: "MacBook", price: 1500 },
+    { name: "Наушники", price: 80 },
+    { name: "iPhone", price: 1200 }
+  ];
+
+  
+  const weatherData = [
+  { city: "Ереван", temperature: 35 },
+  { city: "Берлин", temperature: 20 },
+  { city: "Токио", temperature: 28 },
+  { city: "Дубай", temperature: 42 },
+  { city: "Нью-Йорк", temperature: 12 },
+  { city: "Рейкьявик", temperature: -10 },
+];
 
   return (
-    <div className="todo-app">
-      <h1 className="todo-app__title">Todo App</h1>
-
-      <div className="todo-app__content">
-        
-        <Actions/>
-
-        <TodoList data={filteredTasks}          
-          /> 
-
-        {
-          todos.length > 0 && (
-            <Footer
-              tasks={todos}
-              activeLabel={filter}
-            />
-          )
-        }   
-      </div>
-    </div>
+    <>
+      <UserGreeting isLoggedIn={isLoggedIn} user={user} />
+      <ProductList products={products} />
+      {/*
+      <WeatherCard city="Ереван" temperature={35} />
+      <WeatherCard city="Берлин" temperature={20} />
+      <WeatherCard city="Токио" temperature={28} />
+      <WeatherCard city="Дубай" temperature={42} />
+      <WeatherCard city="Нью-Йорк" temperature={12} />
+      <WeatherCard city="Рейкьявик" temperature={-10} />
+      */}
+      {weatherData && weatherData.map((data, index) => (
+        <WeatherCard key={index} city={data.city} temperature={data.temperature} />
+      ))}
+    </>
   )
-} 
+}
 
 export default App
-
