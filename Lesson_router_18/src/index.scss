@@ -1,10 +1,16 @@
 *{
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-.product-list, .post-details {
+body {
+  background-color: #f0f0f0;
+}
+
+
+.post-list, .post-details {
   max-width: 1240px;
   margin: 0 auto;
   padding: 20px;
@@ -14,7 +20,7 @@
   gap: 20px;
 }
 
-.product-item {
+.post-item {
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
