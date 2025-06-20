@@ -1,0 +1,10 @@
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    max-width: 1240px;
+    margin: 0 auto;
+
+    padding: 24px 16px;
+}
