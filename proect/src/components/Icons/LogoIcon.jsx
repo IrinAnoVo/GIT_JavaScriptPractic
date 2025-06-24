@@ -1,5 +1,3 @@
-import React from 'react';
-
 const LogoIcon = () => (
    <svg width="70" height="73" viewBox="0 0 70 73" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="35" cy="35" r="35" fill="#92A234"/>
