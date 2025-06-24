@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '../components/Header/Header.jsx';
 import Banner from '../components/Banner/Banner.jsx';
 import Categories from '../components/Categories/Categories.jsx';

@@ -1,4 +1,3 @@
-import React from 'react';
 import './Header.scss';
 import LogoIcon from '../Icons/LogoIcon.jsx';
 import IconBag from '../Icons/IconBag.jsx';
