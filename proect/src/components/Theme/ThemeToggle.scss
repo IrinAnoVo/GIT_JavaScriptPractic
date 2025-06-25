@@ -1,0 +1,28 @@
+.theme-toggle {
+  width: 60px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: gray;
+  position: relative;
+  cursor: pointer;
+
+  .toggle-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+  }
+
+  &.dark {
+    background-color: #333;
+
+    .toggle-circle {
+      left: 30px;
+      background-color: #8b8b8b;
+    }
+  }
+}
